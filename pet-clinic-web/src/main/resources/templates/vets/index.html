@@ -8,4 +8,20 @@
 <h1 th:text="'List of Vets'">List of Vets</h1>
 
 </body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${ vets }">
+        <td th:text="${ vet.id }">1</td>
+        <td th:text="${ vet.firstName }">1</td>
+        <td th:text="${ vet.lastName }">1</td>
+    </tr>
+    </tbody>
+</table>
 </html>
