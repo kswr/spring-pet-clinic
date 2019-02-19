@@ -1,5 +1,14 @@
-com/kswr/pet/clinic/model/Owner.class
-com/kswr/pet/clinic/model/PetType.class
+com/kswr/pet/clinic/services/map/OwnerServiceMap.class
+com/kswr/pet/clinic/model/BaseEntity.class
+com/kswr/pet/clinic/services/map/VetServiceMap.class
 com/kswr/pet/clinic/model/Pet.class
+com/kswr/pet/clinic/services/PetService.class
 com/kswr/pet/clinic/model/Vet.class
+com/kswr/pet/clinic/services/map/PetServiceMap.class
+com/kswr/pet/clinic/services/map/AbstractMapService.class
+com/kswr/pet/clinic/services/VetService.class
+com/kswr/pet/clinic/model/PetType.class
+com/kswr/pet/clinic/services/CrudService.class
 com/kswr/pet/clinic/model/Person.class
+com/kswr/pet/clinic/model/Owner.class
+com/kswr/pet/clinic/services/OwnerService.class
