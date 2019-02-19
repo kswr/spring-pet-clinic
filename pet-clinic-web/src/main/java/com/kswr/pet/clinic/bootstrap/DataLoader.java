@@ -1,8 +1,10 @@
 package com.kswr.pet.clinic.bootstrap;
 
 import com.kswr.pet.clinic.model.Owner;
+import com.kswr.pet.clinic.model.PetType;
 import com.kswr.pet.clinic.model.Vet;
 import com.kswr.pet.clinic.services.OwnerService;
+import com.kswr.pet.clinic.services.PetTypeService;
 import com.kswr.pet.clinic.services.VetService;
 import com.kswr.pet.clinic.services.map.OwnerServiceMap;
 import com.kswr.pet.clinic.services.map.VetServiceMap;
@@ -14,14 +16,24 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService  petTypeService;
 
-    public DataLoader(VetService vetService, OwnerService ownerService) {
+    public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeService) {
         this.vetService = vetService;
         this.ownerService = ownerService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) {
+
+        PetType petType1 = new PetType();
+        petType1.setName("Dog");
+        PetType savedDogPetType = petTypeService.save(petType1);
+
+        PetType petType2 = new PetType();
+        petType2.setName("Cat");
+        PetType savedCatPetType = petTypeService.save(petType2);
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Vladimir");
