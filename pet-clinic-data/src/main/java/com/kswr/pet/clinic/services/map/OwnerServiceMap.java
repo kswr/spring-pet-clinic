@@ -5,11 +5,13 @@ import com.kswr.pet.clinic.model.Pet;
 import com.kswr.pet.clinic.services.OwnerService;
 import com.kswr.pet.clinic.services.PetService;
 import com.kswr.pet.clinic.services.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
@@ -68,4 +70,5 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     public Owner findByLastName(String lastName) {
         return null;
     }
+
 }
