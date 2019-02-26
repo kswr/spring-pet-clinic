@@ -14,7 +14,6 @@ com/kswr/pet/clinic/model/PetType$PetTypeBuilder.class
 com/kswr/pet/clinic/model/Visit$VisitBuilder.class
 com/kswr/pet/clinic/repositories/PetTypeRepository.class
 com/kswr/pet/clinic/services/PetTypeService.class
-com/kswr/pet/clinic/model/Vet$VetBuilder.class
 com/kswr/pet/clinic/repositories/VisitRepository.class
 com/kswr/pet/clinic/services/OwnerService.class
 com/kswr/pet/clinic/services/map/OwnerServiceMap.class
@@ -22,6 +21,7 @@ com/kswr/pet/clinic/services/map/VetServiceMap.class
 com/kswr/pet/clinic/services/VisitService.class
 com/kswr/pet/clinic/model/Pet$PetBuilder.class
 com/kswr/pet/clinic/services/map/PetServiceMap.class
+com/kswr/pet/clinic/model/Person$PersonBuilder.class
 com/kswr/pet/clinic/services/VetService.class
 com/kswr/pet/clinic/services/springdatajpa/VetSDJpaService.class
 com/kswr/pet/clinic/repositories/OwnerRepository.class

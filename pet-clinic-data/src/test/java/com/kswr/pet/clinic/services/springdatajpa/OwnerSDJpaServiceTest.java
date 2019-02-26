@@ -15,7 +15,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.sun.tools.doclint.Entity.times;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -41,7 +40,7 @@ class OwnerSDJpaServiceTest {
 
     @BeforeEach
     void setUp() {
-        returnOwner = Owner.builder().id(1L).lastName(LAST_NAME).build();
+        returnOwner = Owner.ownerBuilder().id(1L).lastName(LAST_NAME).build();
     }
 
     @Test
@@ -58,8 +57,8 @@ class OwnerSDJpaServiceTest {
     void findAll() {
         Set<Owner> owners = new HashSet<>();
         Set<Owner> returnOwners;
-        owners.add(Owner.builder().id(2L).build());
-        owners.add(Owner.builder().id(3L).build());
+        owners.add(Owner.ownerBuilder().id(2L).build());
+        owners.add(Owner.ownerBuilder().id(3L).build());
         when(ownerRepository.findAll()).thenReturn(owners);
         returnOwners = service.findAll();
 
@@ -87,7 +86,7 @@ class OwnerSDJpaServiceTest {
 
     @Test
     void save() {
-        Owner owner = Owner.builder().id(1L).lastName(LAST_NAME).build();
+        Owner owner = Owner.ownerBuilder().id(1L).lastName(LAST_NAME).build();
         when(ownerRepository.save(any())).thenReturn(owner);
         Owner savedOwner = service.save(owner);
         assertNotNull(savedOwner);

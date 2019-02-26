@@ -11,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Person extends BaseEntity {
 
+    @Builder(builderMethodName = "personBuilder")
     public Person(Long id, String firstName, String lastName) {
         super(id);
         this.firstName = firstName;
