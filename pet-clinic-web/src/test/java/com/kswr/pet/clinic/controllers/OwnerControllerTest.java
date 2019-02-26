@@ -14,9 +14,10 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerControllerTest {
@@ -27,9 +28,9 @@ class OwnerControllerTest {
     @InjectMocks
     OwnerController controller;
 
-    Set<Owner> owners;
+    private Set<Owner> owners;
 
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
@@ -45,13 +46,32 @@ class OwnerControllerTest {
     @Test
     void listOwners() throws Exception {
         when(ownerService.findAll()).thenReturn(owners);
+
         mockMvc.perform(get("/owners"))
-                .andExpect(status().is(200));
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/index"))
+                .andExpect(model().attribute("owners", hasSize(2)));
 
         verify(ownerService, times(1)).findAll();
     }
 
     @Test
-    void findOwners() {
+    void listOwnersByIndex() throws Exception {
+        when(ownerService.findAll()).thenReturn(owners);
+
+        mockMvc.perform(get("/owners/index"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/index"))
+                .andExpect(model().attribute("owners", hasSize(2)));
+
+        verify(ownerService, times(1)).findAll();
+    }
+    @Test
+    void findOwners() throws Exception {
+        mockMvc.perform(get("/owners/find"))
+                .andExpect(view().name("notimplemented"))
+                .andExpect(status().isOk());
+
+        verifyZeroInteractions(ownerService);
     }
 }
